@@ -7,10 +7,13 @@ import java.util.List;
 import com.codedotorg.Movie;
 import com.codedotorg.Rating;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -77,12 +80,12 @@ public class UserRatingsScreen extends AppScreen {
      */
     public ListView<Rating> createListView() {
         ListView<Rating> listView = new ListView<Rating>();
-        
-
-
-
-        
-
+        if (MovieApp.currentUser != null) {
+            List<Rating> ratings = MovieApp.currentUser.getRatings();
+            for (Rating rating : ratings) {
+                listView.getItems().add(rating);
+            }
+        }
         return listView;
     }
 
