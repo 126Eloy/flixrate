@@ -34,7 +34,7 @@ public class MovieApp extends AppScreen {
     private static ArrayList<User> users;
 
     /** The current user logged into the app */
-    private static User currentUser;
+    public static User currentUser;
 
     /**
      * This class represents the MovieApp which is the main class of the application.
