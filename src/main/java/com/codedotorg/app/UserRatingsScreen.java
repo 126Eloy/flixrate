@@ -60,30 +60,64 @@ public class UserRatingsScreen extends AppScreen {
      *
      * @return a list of UI components for the user ratings screen
      */
-    public List<Node> createComponents() {
-        Label userLabel = new Label();
-        ListView<Rating> listView = createListView();
-        Button backButton = getBackButton();
-
-        List<Node> componentsList = Arrays.asList(userLabel, listView, backButton);
-
-        return componentsList;
-    }
 
     /**
      * Creates a ListView of user ratings.
      * 
      * @return a ListView of Rating objects.
      */
-    public ListView<Rating> createListView() {
-        ListView<Rating> listView = new ListView<Rating>();
-        
+public List<Node> createComponents() {
+    Label userLabel = new Label();
+    ListView<Rating> listView = createListView();
+    Button backButton = getBackButton();
 
+    List<Node> componentsList = Arrays.asList(userLabel, listView, backButton);
 
+    return componentsList;
+}
 
-        
+/**
+ * Creates a ListView of user ratings.
+ * 
+ * @return a ListView of Rating objects.
+ */
+public ListView<Rating> createListView() {
+    ListView<Rating> listView = new ListView<Rating>();
 
-        return listView;
+    // Retrieve user ratings from database or any other data source
+    List<Rating> userRatings = getUserRatings();
+
+    // Add user ratings to the ListView
+    listView.getItems().addAll(userRatings);
+
+    return listView;
+}
+
+/**
+ * Retrieves user ratings from the database or any other data source.
+ * 
+ * @return a list of Rating objects representing user ratings.
+ */
+public List<Rating> getUserRatings() {
+    // Implement the logic to retrieve user ratings
+    // from the database or any other data source
+    // and return them as a list of Rating objects
+    return new ArrayList<Rating>();
+}
+
+/**
+ * Creates a back button.
+ * 
+ * @return a Button object.
+ */
+public Button getBackButton() {
+    Button backButton = new Button("Back");
+
+    // Implement the logic to go back when the button is clicked
+    backButton.setOnAction(e -> {
+        // Go back
+    });
+
+    return backButton;
     }
-
 }
